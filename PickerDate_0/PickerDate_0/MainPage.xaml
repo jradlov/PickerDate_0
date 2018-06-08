@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PickerDate_0"
+             x:Class="PickerDate_0.MainPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Padding="30">
+    <!-- added namespace (sys) for DateTime method -->
+
+    <StackLayout>
+        <DatePicker Date="29 Jun 2018" Format="d MMM yyyy" 
+                    MinimumDate="1 Jun 2018" MaximumDate="30 Jun 2018"
+                    DateSelected="DatePicker_DateSelected"/>
+        
+        <Label Text="Today's Date:" />
+        <DatePicker Date="{x:Static sys:DateTime.Today}" Format="d MMM yyyy" 
+                    DateSelected="DatePicker_DateSelected"/>
+
+        <Label Text="Time Picker:" />
+        
+        <!-- PropertyChanged is not the right event for this.  What is the right event ??? 
+        <TimePicker x:Name="timePicker" Time="06:35" PropertyChanged="TimePicker_PropertyChanged"/> -->
+        <TimePicker x:Name="timePicker" Time="06:35" Unfocused="TimePicker_PropertyChanged"/>
+        
+    </StackLayout>
+
+</ContentPage>
